@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pizza.Models;
-using Pizza.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
