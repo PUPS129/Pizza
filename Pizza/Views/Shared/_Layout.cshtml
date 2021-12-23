@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Pizza</title>
+    @await Html.PartialAsync("CssPartial")
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><span class="flaticon-pizza-1 mr-1"></span>Pizza<br><small>Delicous</small></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+                <li class="nav-item">
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Blog" asp-action="Logout">@User.Identity.Name (Выход)</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Blog" asp-action="login">Вход</a>
+                    }
+
+                </li>
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a asp-action="index" asp-controller="Home" class="nav-link">Главная</a></li>
+                        <li class="nav-item"><a asp-action="menu" asp-controller="Menu" class="nav-link">Меню</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link">Услуги</a></li>
+                        <li class="nav-item"><a asp-action="blog" asp-controller="Blog" class="nav-link">Блог</a></li>
+                        <li class="nav-item"><a asp-action="about" asp-controller="About" class="nav-link">О нас</a></li>
+                        <li class="nav-item"><a asp-action="contact" asp-controller="Contact" class="nav-link">Контакт</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Pizza - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
